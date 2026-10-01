@@ -24,7 +24,7 @@ footer{background:#f4f0ec}
 .admin-fab{position:fixed;left:18px;bottom:18px;z-index:90;padding:11px 15px;border-radius:999px;background:#17151a;color:#fff;font-size:.78rem;font-weight:700;box-shadow:0 12px 30px rgba(0,0,0,.18)}
 .section-glow{position:absolute;inset:auto 0 0;height:180px;background:linear-gradient(transparent,rgba(255,138,0,.035));pointer-events:none}
 </style>
-</head><body><div id="progress"></div><div id="intro"><div class="intro-logo">Anandeshwar<span class="gradient-text">.</span></div></div><div class="cursor"></div><div class="cursor-dot"></div>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script><script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-firestore-compat.js"></script><script src="firebase-config.js"></script></head><body><div id="progress"></div><div id="intro"><div class="intro-logo">Anandeshwar<span class="gradient-text">.</span></div></div><div class="cursor"></div><div class="cursor-dot"></div>
 <header class="nav" id="navbar"><div class="nav-inner"><a class="logo" href="#home">Anandeshwar Graphics<i></i></a><nav class="nav-links"><a href="#home">Home</a><a href="#services">Services</a><a href="#portfolio">Portfolio</a><a href="#about">About</a><a href="#pricing">Pricing</a><a href="#contact">Contact</a></nav><a class="btn btn-primary" href="#contact">Get a Quote ↗</a></div></header>
 <main><section class="hero" id="home"><div class="hero-bg"><div class="grid"></div><div class="blob one"></div><div class="blob two"></div><div class="float-shape"></div></div><div class="container hero-content"><div class="eyebrow hero-el">Creative Design Studio</div><h1 class="hero-title">We Turn Ideas Into <span class="gradient-text">Visual Stories.</span></h1><p class="hero-el">Premium graphic design for brands, creators and businesses — crafted to look memorable, modern and unmistakably yours.</p><div class="hero-actions hero-el"><a class="btn btn-primary magnetic" href="#portfolio">View Work ↗</a><a class="btn btn-ghost magnetic" href="#contact">Get a Quote</a></div></div></section>
 <section class="stats"><div class="container stats-grid"><div class="stat reveal"><strong data-count="250">0</strong><span>Projects Completed</span></div><div class="stat reveal"><strong data-count="120">0</strong><span>Happy Clients</span></div><div class="stat reveal"><strong data-count="5">0</strong><span>Years Experience</span></div></div></section>
@@ -46,39 +46,31 @@ footer{background:#f4f0ec}
 <script>const reduce=matchMedia('(prefers-reduced-motion: reduce)').matches,$=(s,c=document)=>c.querySelector(s),$$=(s,c=document)=>[...c.querySelectorAll(s)];window.addEventListener('load',()=>{let i=$('#intro');if(reduce)i.remove();else{gsap.from('.intro-logo',{y:30,opacity:0,duration:.7});gsap.to(i,{opacity:0,duration:.7,delay:.9,onComplete:()=>i.remove()})}});if(!reduce&&window.Lenis){const l=new Lenis({duration:1.1,smoothWheel:true});requestAnimationFrame(function r(t){l.raf(t);requestAnimationFrame(r)})}addEventListener('scroll',()=>{$('#progress').style.width=(scrollY/(document.documentElement.scrollHeight-innerHeight)*100||0)+'%';$('#navbar').classList.toggle('scrolled',scrollY>30)});if(window.gsap&&!reduce){gsap.registerPlugin(ScrollTrigger);gsap.from('.hero-title',{y:45,opacity:0,duration:1,delay:.25});gsap.from('.hero-el',{y:25,opacity:0,duration:.7,stagger:.12,delay:.45});$$('.reveal').forEach(e=>gsap.from(e,{y:35,opacity:0,duration:.75,scrollTrigger:{trigger:e,start:'top 88%',once:true}}));$$('.card').forEach(c=>{c.onmousemove=e=>{let r=c.getBoundingClientRect();gsap.to(c,{rotationY:((e.clientX-r.left)/r.width-.5)*5,rotationX:-((e.clientY-r.top)/r.height-.5)*5,duration:.25,transformPerspective:700})};c.onmouseleave=()=>gsap.to(c,{rotationY:0,rotationX:0,duration:.35})});$$('.magnetic').forEach(b=>{b.onmousemove=e=>{let r=b.getBoundingClientRect();gsap.to(b,{x:(e.clientX-r.left-r.width/2)*.15,y:(e.clientY-r.top-r.height/2)*.15,duration:.25})};b.onmouseleave=()=>gsap.to(b,{x:0,y:0,duration:.3})});$$('[data-count]').forEach(e=>gsap.to(e,{textContent:+e.dataset.count,duration:1.8,snap:{textContent:1},scrollTrigger:{trigger:e,start:'top 90%',once:true}}));gsap.to('.blob.one',{x:80,y:60,duration:6,repeat:-1,yoyo:true,ease:'sine.inOut'});gsap.to('.blob.two',{x:-50,y:-40,duration:7,repeat:-1,yoyo:true,ease:'sine.inOut'})}$$('.filter').forEach(b=>b.onclick=()=>{$$('.filter').forEach(x=>x.classList.remove('active'));b.classList.add('active');let f=b.dataset.filter;$$('.work').forEach(w=>{let show=f==='all'||w.dataset.cat===f;w.style.display=show?'block':'none';if(show&&!reduce)gsap.fromTo(w,{opacity:0,scale:.92},{opacity:1,scale:1,duration:.35})})});let lb=$('#lightbox'),li=$('#lightboxImg');$$('.work').forEach(w=>w.onclick=()=>{li.src=$('img',w).src;li.alt=$('img',w).alt;lb.classList.add('open')});$('#closeLightbox').onclick=()=>lb.classList.remove('open');lb.onclick=e=>{if(e.target===lb)lb.classList.remove('open')};let ti=0;setInterval(()=>{let q=$$('.quote');if(q.length>1){ti=(ti+1)%q.length;$('#testimonials').style.transform=`translateX(-${ti*100}%)`}},4500);$('#contactForm').onsubmit=e=>{e.preventDefault();let d=new FormData(e.currentTarget),t=`Hello Anandeshwar Graphics!%0A%0AName: ${encodeURIComponent(d.get('name'))}%0APhone: ${encodeURIComponent(d.get('phone'))}%0AService: ${encodeURIComponent(d.get('service'))}%0AMessage: ${encodeURIComponent(d.get('message'))}`;open(`https://wa.me/919999999999?text=${t}`,'_blank')};$('#year').textContent=new Date().getFullYear();if(matchMedia('(pointer:fine) and (min-width:900px)').matches){let c=$('.cursor'),d=$('.cursor-dot'),mx=innerWidth/2,my=innerHeight/2,cx=mx,cy=my;addEventListener('mousemove',e=>{mx=e.clientX;my=e.clientY;d.style.left=mx+'px';d.style.top=my+'px'});gsap.ticker.add(()=>{cx+=(mx-cx)*.16;cy+=(my-cy)*.16;c.style.left=cx+'px';c.style.top=cy+'px'});$$('a,button,.work').forEach(e=>{e.onmouseenter=()=>gsap.to(c,{width:58,height:58,duration:.2});e.onmouseleave=()=>gsap.to(c,{width:34,height:34,duration:.2})})}</script>
 <script>
 (function(){
-const defaults={
- whatsapp:"919999999999",
- email:"hello@anandeshwargraphics.com",
- instagram:"https://instagram.com/",
- hero:"Premium graphic design for brands, creators and businesses — crafted to look memorable, modern and unmistakably yours.",
- products:[
-  {name:"Instagram Post Pack",price:"₹199",badge:"BEST SELLER",desc:"Premium social media post templates for creators and businesses."},
-  {name:"Festival Creative Pack",price:"₹149",badge:"HOT",desc:"Ready-to-use festive designs for your social pages."},
-  {name:"Reels Cover Pack",price:"₹199",badge:"NEW",desc:"Modern covers designed to make your reels grid look premium."},
-  {name:"Business Poster Pack",price:"₹179",badge:"",desc:"Professional promotional posters for your business."},
-  {name:"Logo Starter Kit",price:"₹399",badge:"",desc:"A clean starter identity kit for new brands."},
-  {name:"Ultimate Creator Pack",price:"₹599",badge:"VALUE",desc:"A complete digital creative bundle for your page."}
- ]};
-let cfg;
-try{cfg=JSON.parse(localStorage.getItem("ag_premium_config"))||defaults}catch(e){cfg=defaults}
-if(cfg.hero) document.querySelector(".hero p").textContent=cfg.hero;
-document.querySelectorAll(".contact-info strong")[0].textContent="+"+cfg.whatsapp;
-document.querySelectorAll(".contact-info strong")[1].textContent=cfg.email;
-const wa=document.querySelector(".whatsapp"); wa.href="https://wa.me/"+cfg.whatsapp;
-const ig=[...document.querySelectorAll('a')].find(a=>a.textContent.trim()==="Instagram"); if(ig) ig.href=cfg.instagram;
-const grid=document.getElementById("productGrid");
-if(grid) grid.innerHTML=cfg.products.map((p,i)=>`
-<div class="card reveal">
- <div style="display:flex;justify-content:space-between;gap:10px;align-items:start">
-  <div class="icon">${["✦","◈","▣","▤","✳","◆"][i%6]}</div>
-  ${p.badge?`<span style="background:linear-gradient(110deg,#ff9a00,#ed2f82);color:white;padding:6px 9px;border-radius:999px;font-size:.65rem;font-weight:800">${p.badge}</span>`:""}
- </div>
- <h3>${p.name}</h3><p>${p.desc}</p>
- <div style="display:flex;justify-content:space-between;align-items:center;margin-top:22px;gap:10px">
-  <strong style="font:700 1.35rem Poppins">${p.price}</strong>
-  <a class="btn btn-primary" target="_blank" href="https://wa.me/${cfg.whatsapp}?text=${encodeURIComponent("Hello Anandeshwar Graphics, I want to buy: "+p.name+" ("+p.price+")")}">Buy ↗</a>
- </div>
-</div>`).join("");
+const defaults={whatsapp:"919999999999",email:"hello@anandeshwargraphics.com",instagram:"https://instagram.com/",hero:"Premium graphic design for brands, creators and businesses — crafted to look memorable, modern and unmistakably yours.",products:[
+{name:"Instagram Post Pack",price:"₹199",badge:"BEST SELLER",desc:"Premium social media post templates for creators and businesses."},
+{name:"Festival Creative Pack",price:"₹149",badge:"HOT",desc:"Ready-to-use festive designs for your social pages."},
+{name:"Reels Cover Pack",price:"₹199",badge:"NEW",desc:"Modern covers designed to make your reels grid look premium."},
+{name:"Business Poster Pack",price:"₹179",badge:"",desc:"Professional promotional posters for your business."},
+{name:"Logo Starter Kit",price:"₹399",badge:"",desc:"A clean starter identity kit for new brands."},
+{name:"Ultimate Creator Pack",price:"₹599",badge:"VALUE",desc:"A complete digital creative bundle for your page."}]};
+function apply(cfg){
+ document.querySelector('.hero p').textContent=cfg.hero||defaults.hero;
+ const infos=document.querySelectorAll('.contact-info strong'); if(infos[0])infos[0].textContent='+'+(cfg.whatsapp||defaults.whatsapp); if(infos[1])infos[1].textContent=cfg.email||defaults.email;
+ const wa=document.querySelector('.whatsapp'); if(wa)wa.href='https://wa.me/'+(cfg.whatsapp||defaults.whatsapp); window.__AG_WA=cfg.whatsapp||defaults.whatsapp; const form=document.getElementById('contactForm'); if(form) form.onsubmit=e=>{e.preventDefault();let d=new FormData(form),t=`Hello Anandeshwar Graphics!%0A%0AName: ${encodeURIComponent(d.get('name'))}%0APhone: ${encodeURIComponent(d.get('phone'))}%0AService: ${encodeURIComponent(d.get('service'))}%0AMessage: ${encodeURIComponent(d.get('message'))}`;open('https://wa.me/'+window.__AG_WA+'?text='+t,'_blank')};
+ const ig=[...document.querySelectorAll('a')].find(a=>a.textContent.trim()==='Instagram'); if(ig)ig.href=cfg.instagram||defaults.instagram;
+ const grid=document.getElementById('productGrid'); if(!grid)return;
+ grid.innerHTML=(cfg.products||[]).map((p,i)=>`<div class="card reveal"><div style="display:flex;justify-content:space-between;gap:10px;align-items:start"><div class="icon">${['✦','◈','▣','▤','✳','◆'][i%6]}</div>${p.badge?`<span style="background:linear-gradient(110deg,#ff9a00,#ed2f82);color:white;padding:6px 9px;border-radius:999px;font-size:.65rem;font-weight:800">${esc(p.badge)}</span>`:''}</div><h3 style="margin-top:18px">${esc(p.name)}</h3><p>${esc(p.desc)}</p><div style="display:flex;justify-content:space-between;align-items:center;gap:10px;margin-top:18px"><strong style="font-size:1.2rem">${esc(p.price)}</strong><a class="btn btn-primary" target="_blank" rel="noopener" href="https://wa.me/${cfg.whatsapp||defaults.whatsapp}?text=${encodeURIComponent('Hello Anandeshwar Graphics! I want to buy '+p.name+' for '+p.price+'.')}">Buy on WhatsApp ↗</a></div></div>`).join('');
+}
+function esc(v){return String(v??'').replace(/[&<>"']/g,m=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[m]))}
+try{
+ const fb=window.ANANDESHWAR_FIREBASE_CONFIG;
+ const configured=fb&&fb.apiKey&&!fb.apiKey.startsWith('PASTE_')&&fb.projectId&&!fb.projectId.startsWith('PASTE_');
+ if(configured&&window.firebase){firebase.initializeApp(fb); const db=firebase.firestore();
+  db.collection('site').doc('config').onSnapshot(doc=>{const data=doc.exists?doc.data():defaults; apply({...defaults,...data,products:data.products||defaults.products});},()=>fallback());
+  
+ } else fallback();
+}catch(e){fallback()}
+function fallback(){try{apply(JSON.parse(localStorage.getItem('ag_premium_config'))||defaults)}catch(e){apply(defaults)}}
 })();
 </script>
 </body></html>

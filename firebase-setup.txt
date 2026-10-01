@@ -1,0 +1,32 @@
+ANANDESHWAR GRAPHICS — FINAL SETUP CHECKLIST
+
+1. Firebase Authentication
+   - Email/Password provider is enabled.
+   - Your admin user has been created.
+
+2. Firestore
+   - Database exists.
+   - Rules have been published using the admin UID.
+
+3. Firestore path
+   - The website reads/writes: site/config
+   - This document is created automatically the first time you press
+     "Save Changes to Cloud" in admin.html.
+
+4. GitHub Pages
+   Upload to the repository root:
+   - index.html
+   - admin.html
+   - firebase-config.js
+
+5. Test
+   - Open the main website.
+   - Open /admin.html
+   - Login with your Firebase admin email/password.
+   - Change a product or WhatsApp number.
+   - Press "Save Changes to Cloud".
+   - Open/refresh the public site on another browser/device.
+
+6. If the admin login works but saving fails:
+   - Confirm the published Firestore Rules contain your exact admin UID.
+   - Confirm the site is using firebase-config.js.
