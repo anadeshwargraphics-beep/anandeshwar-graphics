@@ -1,7 +1,5 @@
-// Firebase web configuration for Anandeshwar Graphics
-// Safe to include in a client-side website. Do NOT put service-account/private keys here.
 window.ANANDESHWAR_FIREBASE_CONFIG = {
-  apiKey: "AIzaSyB86E_O8FrpPNNK_ocDHg8zNxlVYFqE67U",
+  apiKey: "AIzaSyB86E_OFrpPNNK_ocDHg8zNxlVYFqE67U",
   authDomain: "anandeshwar-graphics-6164e.firebaseapp.com",
   projectId: "anandeshwar-graphics-6164e",
   storageBucket: "anandeshwar-graphics-6164e.firebasestorage.app",
